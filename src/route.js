@@ -1,21 +1,26 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import vux from '@/components/HelloFromVux'
+import Example from '@/featuers/example/index'
+import ClassCode from '@/featuers/classCode/index'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    // {
+    //   path: '/',
+    //   name: 'Hello',
+    //   component: Hello
+    // },
     {
-      path: '/',
-      name: 'Hello',
-      component: Hello
+      path: '/example/:type/:subjectId/:grade/:id',
+      name: 'example',
+      component: Example
     },
     {
-      path: '/vux',
-      name: 'vux',
-      component: vux
+      path: '/code/:code',
+      name: 'code',
+      component: ClassCode
     }
   ]
 })
