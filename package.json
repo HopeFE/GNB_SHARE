@@ -1,7 +1,7 @@
 {
-  "name": "gnb_share",
+  "name": "vux-webpack-boilerplate",
   "version": "1.0.0",
-  "description": "gnb_share",
+  "description": "vux-webpack-boilerplate",
   "author": "Hope <hopefullstack@gmail.com>",
   "private": true,
   "scripts": {
@@ -14,6 +14,7 @@
     "es6-promise": "^4.1.0",
     "fastclick": "^1.0.6",
     "vue": "^2.3.4",
+    "vue-meta": "^1.0.4",
     "vue-router": "^2.5.3",
     "vuex": "^2.3.1",
     "vuex-router-sync": "^4.1.3",

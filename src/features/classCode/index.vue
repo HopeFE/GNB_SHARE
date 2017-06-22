@@ -5,8 +5,8 @@
         <flexbox-item :span="11">
           <h4>提示:</h4>
           <p>同学们，我刚创建了一个班级，大家快加进来，下面是我们的班级码</p>
-          <b></b>
-          <b>by 王建新老师</b>
+          <b>{{Code.classCode}}</b>
+          <b>by {{Code.teacherName}}老师</b>
         </flexbox-item>
       </flexbox>
       <flexbox justify='center'>
@@ -33,23 +33,32 @@ store.registerModule('code', {
 })
 
 export default {
-  name: 'invite',
+  name: 'ClassCode',
   components: {
     XHeader, XButton, ViewBox, Flexbox, FlexboxItem, Spinner
   },
   computed: {
-    ...mapGetters(['Invite'])
+    ...mapGetters(['Code'])
   },
   data () {
     return {
-      loading: true
+      loading: true,
+      meta: ``
     }
   },
   methods: {
-    ...mapActions(['getInvite'])
+    ...mapActions(['getCode'])
+  },
+  metaInfo () {
+    return {
+      title: this.meta
+    }
   },
   created () {
-    this.getInvite()
+    this.getCode().then(() => {
+      this.meta = `${this.Code.teacherName}邀请您加入班级${this.Code.name}`
+      this.loading = false
+    })
   }
 }
 </script>

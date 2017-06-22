@@ -8,7 +8,7 @@ export const getCode = ({ rootState, commit }) => {
       method: 'get',
       url: 'teacher/share/class',
       params: {
-        subjectId: rootState.route.params.code
+        classCode: rootState.route.params.code
       }
     })
     .then((response) => {
