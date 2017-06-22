@@ -1,6 +1,6 @@
 <template>
   <view-box ref="about" body-padding-top="46px">
-    <div v-show='!loading'>
+    <div v-show='!loading && !error'>
       <flexbox justify='center' class='tip'>
         <flexbox-item :span="11">
           <h4>提示:</h4>
@@ -17,7 +17,7 @@
     </div>
     <div style="text-align:center">
       <spinner v-if="loading" type="dots"></spinner>
-      <!--<p v-else-if="Example.length == 0" style="font-size:16px;padding:10px 0;color:#4BB7AA">出错了~</p>-->
+      <p v-if='error' style="font-size:16px;padding:10px 0;color:#4BB7AA">出错了~</p>
     </div>
   </view-box>
 </template>
@@ -40,11 +40,27 @@ export default {
   data () {
     return {
       loading: true,
-      meta: ``
+      error: false,
+      meta: `归纳本`
     }
   },
   methods: {
-    ...mapActions(['getCode'])
+    ...mapActions(['getCode']),
+    _getData () {
+      return new Promise((resolve, reject) => {
+        this.loading = true
+        this.error = false
+        this.getCode().then((res) => {
+          this.meta = `${this.Code.teacherName}邀请您加入班级${this.Code.name}`
+          resolve(res)
+        }).catch((e) => {
+          this.error = true
+          reject(e)
+        }).finally(() => {
+          this.loading = false
+        })
+      })
+    }
   },
   metaInfo () {
     return {
@@ -56,11 +72,12 @@ export default {
       ...modules
     })
   },
+  beforeRouteUpdate (to, from, next) {
+    next()
+    this._getData()
+  },
   created () {
-    this.getCode().then(() => {
-      this.meta = `${this.Code.teacherName}邀请您加入班级${this.Code.name}`
-      this.loading = false
-    })
+    this._getData()
   }
 }
 </script>
@@ -76,7 +93,6 @@ export default {
     font-size: .8rem;
   }
 }
-
 .code {
   text-align: center;
   padding: 1.5rem 0;

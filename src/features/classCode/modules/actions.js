@@ -10,10 +10,11 @@ export const getCode = ({ rootState, commit }) => {
       params: {
         classCode: rootState.route.params.code
       }
-    })
-    .then((response) => {
+    }).then((response) => {
       commit(types.CODE, response.data.data)
       resolve(response)
+    }).catch((e) => {
+      reject(e)
     })
   })
 }

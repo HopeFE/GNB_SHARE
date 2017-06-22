@@ -63,6 +63,9 @@ export default {
       ...modules
     })
   },
+  beforeRouteUpdate (to, from, next) {
+    this._getData()
+  },
   created () {
     this._getData()
   }
