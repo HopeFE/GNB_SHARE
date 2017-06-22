@@ -13,7 +13,7 @@ export default new Router({
     {
       path: '/example/:type/:subjectId/:grade/:id',
       name: 'example',
-      component: r => require.ensure([], () => r(require('./features/example/index')), '/code')
+      component: r => require.ensure([], () => r(require('./features/example/index')), '/example')
     }
   ]
 })

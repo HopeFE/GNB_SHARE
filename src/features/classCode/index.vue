@@ -11,7 +11,7 @@
       </flexbox>
       <flexbox justify='center'>
         <flexbox-item :span="10" class='code' @click.native='showAction = true'>
-          <x-button type="primary" plain mini>还未装归纳本?</x-button>
+          <x-button type="primary" plain mini>还未装归纳本</x-button>
         </flexbox-item>
       </flexbox>
     </div>
@@ -28,9 +28,6 @@ import { XHeader, XButton, ViewBox, Flexbox, FlexboxItem, Spinner } from 'vux'
 import { mapGetters, mapActions } from 'vuex'
 import store from '@/store'
 import modules from './modules/store'
-store.registerModule('code', {
-  ...modules
-})
 
 export default {
   name: 'ClassCode',
@@ -53,6 +50,11 @@ export default {
     return {
       title: this.meta
     }
+  },
+  beforeCreate () {
+    store.registerModule('code', {
+      ...modules
+    })
   },
   created () {
     this.getCode().then(() => {

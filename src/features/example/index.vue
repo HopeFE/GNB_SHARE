@@ -34,10 +34,6 @@ import { mapActions, mapGetters } from 'vuex'
 import store from '@/store'
 import modules from './modules/store'
 
-store.registerModule('example', {
-  ...modules
-})
-
 export default {
   name: 'example',
   components: {
@@ -61,6 +57,11 @@ export default {
         this.loading = false
       })
     }
+  },
+  beforeCreate () {
+    store.registerModule('example', {
+      ...modules
+    })
   },
   created () {
     this._getData()
