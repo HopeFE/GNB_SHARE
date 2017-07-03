@@ -5,9 +5,9 @@
 [![devDependencies](https://david-dm.org/HopeFE/GNB_SHARE/dev-status.svg)](https://david-dm.org/HopeFE/GNB_SHARE?type=dev)
 
 ## 介绍
-- [班级分享](http://share.guinaben.com/class?code=092936)
+- [班级分享](http://share.guinaben.com/#/class?code=092936)
 
-- [邀请码推荐](http://share.guinaben.com/invite?code=480019)
+- [邀请码推荐](http://share.guinaben.com/#/invite?code=480019)
 
 ## 技术一览
 
