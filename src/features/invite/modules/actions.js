@@ -1,17 +1,17 @@
 import axios from '@/components/axios/'
 import * as types from './mutationTypes'
 
-/** 获取班级信息 */
-export const getCode = ({ rootState, commit }) => {
+/** 获取人员信息 */
+export const getInvite = ({ rootState, commit }) => {
   return new Promise((resolve, reject) => {
     axios({
       method: 'get',
-      url: 'teacher/share/class',
+      url: 'teacher/share/inviteCode',
       params: {
-        classCode: rootState.route.query.code
+        inviteCode: rootState.route.query.code
       }
     }).then((response) => {
-      commit(types.CLASS_CODE, response.data.data)
+      commit(types.INVITE_CODE, response.data.data)
       resolve(response)
     }).catch((e) => {
       reject(e)

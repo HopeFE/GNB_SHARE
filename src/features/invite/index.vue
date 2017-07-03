@@ -1,52 +1,57 @@
 <template>
-  <view-box ref="ClassCode" body-padding-top="46px">
+  <view-box ref="Invite" body-padding-top="46px">
     <div class='icon'>
       <img src="../../assets/icon.png" width='100' height='100' alt="icon">
     </div>
     <flexbox justify='center'>
-      <flexbox-item :span="11" class='code'>
-        <p style='line-height:30px;text-align:left;'>同学们，我刚创建了一个班级，大家快加进来，下面是我们的班级码</p>
+      <flexbox-item :span="10" class='code'>
+        <h3>这是我的邀请码,快来下载归纳本吧</h3>
         <p style='font-size:1.5rem;color:blue;padding:.25rem;'>{{code}}</p>
         <p style='text-align:right'>
-          <b>by {{ClassInfo.teacherName}}</b>
+          <b>by {{Invite.name}}</b>
         </p>
       </flexbox-item>
     </flexbox>
     <flexbox justify='center'>
       <flexbox-item :span="10">
-        <x-button type="primary" @click.native="_open('http://a.app.qq.com/o/simple.jsp?pkgname=com.sanbao.guinaben.student')">下载归纳本</x-button>
+        <x-button type="primary" @click.native="_open('http://a.app.qq.com/o/simple.jsp?pkgname=com.sanbao.guinaben.student')">下载归纳本-学生端</x-button>
+      </flexbox-item>
+    </flexbox>
+    <flexbox justify='center' style='margin-top:1rem;'>
+      <flexbox-item :span="10">
+        <x-button type="primary" @click.native="_open('http://a.app.qq.com/o/simple.jsp?pkgname=com.sanbao.guinaben.teacher')">下载归纳本-教师端</x-button>
       </flexbox-item>
     </flexbox>
   </view-box>
 </template>
 
 <script>
-import { XHeader, XButton, ViewBox, Flexbox, FlexboxItem, Spinner } from 'vux'
+import { XHeader, XButton, ViewBox, Flexbox, FlexboxItem } from 'vux'
 import { mapGetters, mapActions } from 'vuex'
 import store from '@/store'
 import modules from './modules/store'
 
 export default {
-  name: 'ClassCode',
+  name: 'Invite',
   components: {
-    XHeader, XButton, ViewBox, Flexbox, FlexboxItem, Spinner
+    XHeader, XButton, ViewBox, Flexbox, FlexboxItem
   },
   computed: {
-    ...mapGetters(['ClassInfo']),
+    ...mapGetters(['Invite']),
     code () {
       return this.$route.query.code
     }
   },
   data () {
     return {
-      meta: `加入班级`
+      meta: `邀请好友`
     }
   },
   methods: {
-    ...mapActions(['getCode']),
+    ...mapActions(['getInvite']),
     _getData () {
       return new Promise((resolve, reject) => {
-        this.getCode().then((res) => {
+        this.getInvite().then((res) => {
           resolve(res)
         }).catch((e) => {
           reject(e)
@@ -63,13 +68,13 @@ export default {
     }
   },
   beforeCreate () {
-    store.registerModule('code', {
+    store.registerModule('Invite', {
       ...modules
     })
   },
   beforeRouteUpdate (to, from, next) {
-    this._getData()
     next()
+    this._getData()
   },
   created () {
     this._getData()

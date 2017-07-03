@@ -6,9 +6,14 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/code/:code',
-      name: 'code',
+      path: '/class',
+      name: 'class',
       component: r => require.ensure([], () => r(require('./features/classCode/index')), '/code')
+    },
+    {
+      path: '/invite',
+      name: 'invite',
+      component: r => require.ensure([], () => r(require('./features/invite/index')), '/invite')
     },
     {
       path: '/example/:type/:subjectId/:grade/:id',

@@ -9,11 +9,9 @@
       <div slot="content">
         <div v-html="Example.stem"></div>
         <div v-if="Example.opt">
-          <template v-for="(value, key) in Example.opt">
-            <div style="padding-top:5px;">{{ key }}：
-              <p v-html="value" style="display:inline-block"></p>
-            </div>
-          </template>
+          <div v-for="(value, key) in Example.opt" :key='key' style="padding-top:5px;">{{ key }}：
+            <p v-html="value" style="display:inline-block"></p>
+          </div>
         </div>
       </div>
     </card>

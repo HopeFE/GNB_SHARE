@@ -2,18 +2,18 @@ import * as actions from './actions'
 import * as types from './mutationTypes'
 
 const state = {
-  classInfo: []
+  user: []
 }
 
 const getters = {
-  ClassInfo: (state) => {
-    return state.classInfo
+  Invite: (state) => {
+    return state.user
   }
 }
 
 const mutations = {
-  [types.CLASS_CODE] (state, data) {
-    state.classInfo = data
+  [types.INVITE_CODE] (state, data) {
+    state.user = data
   }
 }
 
