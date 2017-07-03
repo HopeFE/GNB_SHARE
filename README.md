@@ -1,6 +1,8 @@
 # GNB_SHARE
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Dependencies](https://david-dm.org/HopeFE/GNB_SHARE/status.svg)](https://david-dm.org/HopeFE/GNB_SHARE) 
+[![devDependencies](https://david-dm.org/HopeFE/GNB_SHARE/dev-status.svg)](https://david-dm.org/HopeFE/GNB_SHARE?type=dev)
 
 ## 介绍
 - [班级分享](http://share.guinaben.com/class?code=092936)

@@ -1,7 +1,7 @@
 {
-  "name": "vux-webpack-boilerplate",
+  "name": "gnb_share",
   "version": "1.0.0",
-  "description": "vux-webpack-boilerplate",
+  "description": "gnb app share pages",
   "author": "Hope <hopefullstack@gmail.com>",
   "private": true,
   "scripts": {
@@ -77,6 +77,6 @@
   },
   "browserslist": [
     "iOS >= 7",
-    "Android >= 4.1"
+    "Android >= 4.4"
   ]
 }
