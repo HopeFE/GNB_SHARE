@@ -1,12 +1,11 @@
-# vux-webpack-boilerplate
+# GNB_SHARE
 
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## 功能特性
-- Eslint(Standard)
-- Axios初始化配置
-- Vux(Vue手机组件)
-- CSSHTML内联
+## 介绍
+- [班级分享](http://share.guinaben.com/class?code=092936)
+
+- [邀请码推荐](http://share.guinaben.com/invite?code=480019)
 
 ## 技术一览
 
